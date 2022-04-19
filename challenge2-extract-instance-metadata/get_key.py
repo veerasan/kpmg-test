@@ -5,15 +5,12 @@ def gen_dict_extract(key, var):
         for k, v in var.items():
             if k == key:
                 yield v
-            print("key , value -",k,v)
             if isinstance(v, dict):
                 for result in gen_dict_extract(key, v):
-                    print("key-1 , value-1,result-1 -->",result)
                     yield result
             elif isinstance(v, list):
                 for d in v:
                     for result in gen_dict_extract(key, d):
-                        print("key-2 , value-2,result-2 -->",k,v,result)
                         yield result
 
 

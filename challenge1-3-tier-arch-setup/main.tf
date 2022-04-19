@@ -5,15 +5,6 @@ provider "aws" {
   version    = "~> 2.0"
 }
 
-terraform {
-  backend "s3" {
-    bucket  = "terraform-backend-store"
-    encrypt = true
-    key     = "terraform.tfstate"
-    region  = "eu-west-1"
-  }
-}
-
 module "vpc" {
   source             = "./module/vpc"
   name               = var.name
